@@ -1,0 +1,27 @@
+<h1 class="date">Date Picker</h1>
+<nz-range-picker class="picker" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+<button nz-button [nzType]="'primary'" (click)="showModal()"><span>Add Booking</span></button>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Add Your Bookings from here" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <ng-container *nzModalContent>
+    <nz-date-picker
+      [nzDisabledDate]="disabledStartDate"
+      nzShowTime
+      nzFormat="yyyy-MM-dd HH:mm:ss"
+      [(ngModel)]="startValue"
+      nzPlaceHolder="Start"
+      (nzOnOpenChange)="handleStartOpenChange($event)"
+    ></nz-date-picker>
+    <nz-date-picker
+      #endDatePicker
+      [nzDisabledDate]="disabledEndDate"
+      nzShowTime
+      nzFormat="yyyy-MM-dd HH:mm:ss"
+      [(ngModel)]="endValue"
+      nzPlaceHolder="End"
+      (nzOnOpenChange)="handleEndOpenChange($event)"
+    ></nz-date-picker>
+    <input nz-input [(ngModel)]="value" placeholder="Description" nzSize="default" />
+  </ng-container>
+</nz-modal>
+<ag-grid-angular class="ag-theme-quartz" style="height: 500px;" [rowData]="userList" [columnDefs]="colDefs"
+  [defaultColDef]="defaultColDef" />

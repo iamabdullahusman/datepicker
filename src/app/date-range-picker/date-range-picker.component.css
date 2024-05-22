@@ -1,0 +1,17 @@
+nz-range-picker {
+    margin: 0 8px 12px 0;
+  }
+  .date{
+    text-align: center;
+    font-weight: bolder;
+    color: #000000;
+  }
+.picker{
+  text-align: center;
+  font-weight: bolder;
+  
+
+}
+nz-date-picker {
+  margin: 0 8px 12px 0;
+}
